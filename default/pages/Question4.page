@@ -1,0 +1,6 @@
+<apex:page controller="Question4"  action="{!check}" >
+    <b>Hey System Administrator,</b>
+    <br/>
+    <br/>
+    We can bring positive energy into our daily lives by smiling more, talking to strangers in line, replacing handshakes with hugs, and calling our friends just to tell them we love them.
+</apex:page>

@@ -1,0 +1,7 @@
+<aura:component >
+
+    <input type="text" class = "form-control" onkeyup = "{!c.searchKey}" placeholder = "Enter Name"/>
+    
+    
+    
+</aura:component>

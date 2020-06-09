@@ -1,0 +1,61 @@
+<apex:page standardstylesheets="false" showheader="false">
+    
+    <HTML>
+        <HEAD>
+            <TITLE> Change </TITLE>
+            
+        </HEAD>
+        <BODY style="background-color:green;">
+            
+            
+            
+            
+            
+            <TABLE id="dataTable" width="350px" border="1">
+                <TR>
+                    <TD><INPUT type="checkbox"/></TD>
+                    <TD> 1 </TD>
+                    <TD> <INPUT type="text" /> </TD>
+                </TR>
+            </TABLE>
+            
+            <h1 id="h1">
+                Hi My Name Is Ashok Kumar Goliya.
+            </h1>
+            
+            <p id="para" onmouseover="chn()">
+                My Employee Code is 90.
+            </p>
+            
+            
+            <INPUT type="button" value="Change" onclick="change()" />
+            <script>
+            
+            function change() {
+                
+                var para = document.getElementById("para");
+                para.style.color = 'red';
+                para.style.fontWeight = 'bold';
+                
+                var table = document.getElementById("dataTable");
+                table.style.backgroundColor = 'blue';
+                
+                //document.getElementById("h1").style.textDecoration = "underline overline"; 
+                document.getElementById("h1").style.textDecoration = "underline"; 
+                
+            }
+            function chn() {
+                
+                var para = document.getElementById("para");
+                para.style.backgroundColor = 'White';
+                
+            }
+            
+            
+            
+            </script>
+            
+        </BODY>
+    </HTML>
+    
+</apex:page>

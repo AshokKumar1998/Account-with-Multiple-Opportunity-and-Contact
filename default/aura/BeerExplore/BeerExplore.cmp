@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="BeerSearchaAuraService">
+    <aura:handler name="BeerEvent" event="c:SearchEvent" action="{!c.handleCompEvent}" />
+    <aura:attribute name="beerList" type="Beer__c"/>
+    <div style="Font-size:20px">
+        <c:HeaderComponent TagLine="Beer" Message=" Piyo Or Piyo Dba Ke Piyo"/>
+    </div>
+    <div>
+        <c:BeerSearch/>
+    </div>
+    
+    <div>
+        <c:BeerListComponent recordList="{!v.beerList}"/>
+    </div>
+</aura:component>

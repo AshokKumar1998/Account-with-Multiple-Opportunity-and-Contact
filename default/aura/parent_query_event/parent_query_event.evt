@@ -1,0 +1,7 @@
+<aura:event type="APPLICATION" >
+
+	<aura:attribute name="search_" type = "String" />
+    <aura:attribute name="search_f" type = "String" />
+    <aura:attribute name="search_o" type = "String" />
+    
+</aura:event>

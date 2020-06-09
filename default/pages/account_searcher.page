@@ -1,0 +1,47 @@
+<apex:page controller="search_control">
+
+    <apex:tabPanel >
+        <apex:tab label="Searcher">
+            <apex:form >
+                <apex:pageBlock >
+
+                
+
+                        <apex:pageBlockSection title="Search Account">
+
+                            <apex:inputText value="{!search_name}" label="Account Name" />
+
+                        </apex:pageBlockSection>
+
+                
+
+                        <apex:pageBlockButtons location="TOP">
+
+                            <apex:commandButton action="{!search}" title="Search Record" value="Search Record" reRender="records" />
+
+                        </apex:pageBlockButtons>
+
+                     
+                </apex:pageBlock>
+
+            </apex:form>
+        </apex:tab>
+        <apex:tab label="shower">
+                <apex:pageBlock >
+
+                        <apex:pageBlockSection title="Here Are Similar Record's">
+
+                            <apex:pageBlockTable value="{!acc}" var="a" id="records">
+
+                                <apex:column value="{!a.Name}" title="Name" />
+                                <apex:column value="{!a.Numberofemployees}" title="Number Of Employees" />
+
+                            </apex:pageBlockTable>
+
+                        </apex:pageBlockSection>
+                    
+                </apex:pageBlock>
+
+        </apex:tab>
+    </apex:tabPanel>
+</apex:page>

@@ -1,0 +1,37 @@
+<apex:page controller="Question2_3_extension" showHeader="False" sidebar="false">
+
+    <apex:form >
+   <apex:pageBlock >
+
+        <apex:pageBlockSection title="Related List" columns="2">
+
+    
+
+                <apex:inputText value="{!pname}" label="Name"/>
+                <apex:selectList size="1" value="{!selectedname}" multiselect="false"> 
+                    <apex:selectOptions value="{!selectedaccnamefields}"/>  
+                </apex:selectList>
+            
+
+          
+        
+        </apex:pageBlockSection>
+
+        <apex:pageBlockButtons >
+
+            <apex:commandButton action="{!getcreate}" title="Insert Record" value="Insert Record"/>
+            <apex:commandButton action="{!getrec}" title="Search Record" value="Show Record" reRender="records" />
+
+
+        </apex:pageBlockButtons>
+
+        <apex:pageBlockTable value="{!prop}" var="a" id="records">
+        
+                <apex:column value="{!a.Name}"/>
+                <apex:column value="{!a.Account__c}"/>
+        
+             </apex:pageBlockTable>
+   </apex:pageBlock>
+</apex:form>
+
+</apex:page>

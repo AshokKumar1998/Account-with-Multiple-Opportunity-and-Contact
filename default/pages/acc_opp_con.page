@@ -1,0 +1,65 @@
+<apex:page controller="rec_controller" extensions="acc_view_con">
+    
+    <apex:form >
+    
+        <apex:pageMessages >
+        
+        </apex:pageMessages>
+        
+        <apex:pageMessage severity="CONFIRM" strength="1" title="Welcome">
+        
+        	Enter Your Data
+            
+        </apex:pageMessage>
+        
+    	<apex:pageBlock >
+        
+        	<apex:pageBlockSection title="ACCOUNT,  OPPORTUNITY & CONTACT" columns="1">
+        
+        		<apex:pageBlockSection title="Account Information">
+                    
+                    <apex:inputText value="{!acc_name}" label="Account Holder Name" required="true"/>
+                    <apex:inputText value="{!no_emp}" label="No of Employees"/>
+            
+            	</apex:pageBlockSection>
+            
+            	<apex:pageBlockSection title="Opportunity Information">
+                        
+                    <apex:inputText value="{!opp_name}" label="Opportunity Name" required="true"/>
+                    <apex:inputText value="{!op_Closedate}" label="Close Date" required="true" onmouseover="( MM / DD / YYYY)"/>
+                    <apex:inputText value="{!op_amount}" label="Amount"/>
+            
+            	</apex:pageBlockSection>
+            
+             	<apex:pageBlockSection title="Contact Information">
+                    
+                    <apex:inputText value="{!c_fn}" label="First Name"/>
+                	<apex:inputText value="{!c_ln}" label="Last Name" required="true"/>
+                    <apex:inputText value="{!phn}" label="Phone No"/>
+            
+            	</apex:pageBlockSection>
+            
+        	</apex:pageBlockSection>
+          <apex:pageBlockButtons location="BOTTOM">
+            
+            	<apex:commandButton action="{!Save_rec}" value="Save Record's" />
+            
+          </apex:pageBlockButtons>
+        </apex:pageBlock>
+    
+    </apex:form>
+    
+    <apex:pageBlock >
+    
+    	<apex:pageBlockTable value="{!accList}" var="a">
+        
+        	<apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.numberofemployees}"/>
+            <apex:column value="{!a.phone}"/>
+        
+        </apex:pageBlockTable>
+    
+    </apex:pageBlock>
+    
+    
+</apex:page>

@@ -1,0 +1,7 @@
+<aura:component >
+	 <aura:handler  event="c:ApplicationEvent" action="{!c.handlesource}" phase="capture" includeFacets="true"/>
+    <div  class="slds-p-around_medium">
+       Root Component<br/>
+       {!v.body}
+    </div>
+</aura:component>

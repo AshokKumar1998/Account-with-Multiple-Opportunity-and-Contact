@@ -1,0 +1,34 @@
+<aura:component >
+    <aura:attribute name="recordList" type="Beer__c" />
+    <aura:attribute name="beerId" type="String"/>
+    <div>
+        <div class="slds-grid slds-wrap"> 
+            <aura:iteration items="{!v.recordList}" var="item">
+                <div class="slds-col slds-size_1-of-4 slds-p-around_small"> 
+                    <lightning:card title="{!item.Name}" footer="{!item.Id}" iconName="custom:custom7">
+                        <p class="slds-p-horizontal_small"> 
+                            <div class="slds-grid slds-gutters"> 
+                                <div class="slds-col slds-size 1-of-3"> 
+                                    <img src="{!$Resource.beer}" />
+                                    <div class="slds-col slds-size_2-of-3"> 
+                                         Id:  {!item.Ashoka__id__c} &nbsp;&nbsp;Name : {!item.Name} <br/>
+                                         Total_Quantity:  {!item.Ashoka__Total_Quantity__c} &nbsp;&nbsp;Tags : {!item.Ashoka__Tags__c} <br/>
+                                         Price:  {!item.Ashoka__Price__c} &nbsp;&nbsp;Alcohol : {!item.Ashoka__Alcohol__c} <br/>
+                                         brewery_name:  {!item.Ashoka__brewery_name__c} &nbsp;&nbsp;brewery : {!item.Ashoka__brewery__c} <br/>
+                                        </div>
+                                </div> 
+                            </div> 
+                        </p> 
+                        <aura:set attribute="actions">
+                            <lightning:button label="View Detail" name="{!item.Id}" variant="brand" onclick="{!c.showinfo}"/>
+                        </aura:set>
+                    </lightning:card>
+                    
+                </div> 
+            </aura:iteration>
+        </div>    
+         <c:BeerDetail beerId = "{!v.beerId}" />
+    </div> 
+   
+    
+</aura:component>

@@ -1,0 +1,46 @@
+<aura:component controller = "insert_custom_relation_account" >
+    <aura:attribute name="newAccount" type="Acc__c"
+                    default="{ 'sobjectType': 'Acc__c',
+                             'Ashoka__Account_Holder_Nme__c': '',
+                             'Ashoka__Account_Type__c': '',
+                             'Ashoka__Deposite_Amount__c': '',
+                             'Ashoka__Address__c': '',
+                             'Ashoka__Select_Branch__c': ''
+                             }"/>
+    
+    
+    
+    <aura:attribute name="options_obj" type="List" />
+    
+    <aura:attribute name="pick_val" type="List" />
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <form>
+        <lightning:input type="text"  aura:id="Name" value="{!v.newAccount.Ashoka__Account_Holder_Nme__c}" placeholder = "Enter Account Name" required="true"/>
+        <lightning:input type="text"  aura:id="Email" value="{!v.newAccount.Ashoka__Address__c}" placeholder = "Enter Email"  required="true"/>
+       
+        <lightning:select  label="Select Type Of Account : "  value="{!v.newAccount.Ashoka__Account_Type__c}">
+            <aura:iteration items="{!v.pick_val}" var="option">
+                <option text="{!option.label}" value="{!option.id}" selected="{!option.selected}"/>
+            </aura:iteration>
+        </lightning:select>
+        
+        <lightning:input type="text"  aura:id="amt" value="{!v.newAccount.Ashoka__Deposite_Amount__c}" placeholder = "Enter Deposite Amount"  required="true"/>
+       
+        
+ 
+ 		 <c:customLookup objectAPIName="Ashoka__Branch__c" IconName="standard:account" selectedRecord="{!v.newAccount.Ashoka__Select_Branch__c}" label="Branch Name"/>
+ 
+        
+        
+        
+        <lightning:button variant="base" label="Insert" title="Base action" onclick="{!c.insert_account1}"/>
+        
+    </form>
+    
+    
+    
+    
+    
+</aura:component>

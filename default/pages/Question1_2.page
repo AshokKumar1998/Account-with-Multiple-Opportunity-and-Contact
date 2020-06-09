@@ -1,0 +1,43 @@
+<apex:page standardController="Account" showHeader="False" sidebar="false">
+
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection title="standard Account detail page">  
+            
+            <apex:inputText value="{!Account.OwnerId}"/>
+            <apex:inputText value="{!Account.Rating}"/>
+            <apex:inputText value="{!Account.Name}"/>
+            <apex:inputText value="{!Account.Phone}"/>
+            <apex:inputText value="{!Account.ParentId}"/>
+            <apex:inputText value="{!Account.Fax}"/>
+            <apex:inputText value="{!Account.AccountNumber}"/>
+            <apex:inputText value="{!Account.Website}"/>
+            <apex:inputText value="{!Account.Site}"/>
+            <apex:inputText value="{!Account.TickerSymbol}"/>
+            <apex:inputText value="{!Account.Type}"/>
+            <apex:inputText value="{!Account.Ownership}"/>
+            <apex:inputText value="{!Account.Industry}"/>
+            <apex:inputText value="{!Account.NumberofEmployees}"/>
+            <apex:inputText value="{!Account.AnnualRevenue}"/>
+            <apex:inputText value="{!Account.Sic}"/>
+            <apex:inputText value="{!Account.MyExtID_c__c}"/>
+            <apex:inputText value="{!Account.Email__c}"/>
+            <apex:inputText value="{!Account.CustomerPriority__c}"/>
+            <apex:inputText value="{!Account.SLA__c}"/>
+            <apex:inputText value="{!Account.SLAExpirationDate__c}"/>
+            <apex:inputText value="{!Account.SLASerialNumber__c}"/>
+            <apex:inputText value="{!Account.NumberofLocations__c}"/>
+            <apex:inputText value="{!Account.UpsellOpportunity__c}"/>
+            <apex:inputText value="{!Account.Active__c}"/>
+            <apex:inputText value="{!Account.CreatedById}"/>
+            <apex:inputText value="{!Account.Description}"/>
+            <apex:inputText value="{!Account.LastModifiedById}"/>
+           
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons location="Bottom">
+            <apex:commandButton action="{!save}" value="Save Account"/>    
+    </apex:pageBlockButtons>    
+        
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

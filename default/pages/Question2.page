@@ -1,0 +1,23 @@
+<apex:page standardController="Account" extensions="Question2">
+  
+<apex:form >
+    <apex:pageBlock >
+
+            <apex:pageBlockSection title="Account Created Today">
+
+                <apex:pageBlockTable value="{!acc}" var="a">
+
+                    <apex:column value="{!a.id}"/>
+                    <apex:column >
+                        <apex:commandLink action="/{!a.Id}" value="{!a.Name}"/>
+                    </apex:column>
+                    <apex:column value="{!a.numberofemployees}"/>
+                    <apex:column value="{!a.phone}"/>
+
+                </apex:pageBlockTable>
+
+            </apex:pageBlockSection>
+
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

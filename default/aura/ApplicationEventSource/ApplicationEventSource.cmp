@@ -1,0 +1,4 @@
+<aura:component >
+    <lightning:button value="Fire Application Event" label="Execute" variant="brand" onclick="{!c.executeEvt}"/>
+    
+</aura:component>

@@ -1,0 +1,37 @@
+<apex:page standardstylesheets="false" showheader="false">
+    
+    <HTML>
+        <HEAD>
+            <TITLE> Palindrome </TITLE>
+            
+        </HEAD>
+        <BODY>
+            
+            <INPUT type="text" placeholder="Enter...." id="numofrow" />
+            <INPUT type="button" value="Add Row" onclick="check()" />
+            
+            
+            
+            <script>
+            
+            function check() {
+                
+                var str = document.getElementById("numofrow").value;
+               
+                var str2 = str.split("").reverse().join("");
+                
+                if (str == str2)
+                    alert('-- It Is Palindrome --');
+                else
+                    alert('lenght : '+str2.length+'\nReverse : '+str2);
+                
+            }
+            
+            
+            
+            </script>
+            
+        </BODY>
+    </HTML>
+    
+</apex:page>

@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:handler name="SourceComponent" event="c:compEvent" action="{!c.executeEvtH}" includeFacets="true" phase="bubble"/>
+    <div  class="slds-p-around_medium">
+        {!v.body}
+    </div>
+</aura:component>

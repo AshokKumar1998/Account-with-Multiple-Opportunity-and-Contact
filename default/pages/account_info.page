@@ -1,0 +1,22 @@
+<apex:page standardController="Account">
+
+    <apex:pageBlock >
+    
+    <apex:pageBlockSection title="Accout Info" columns="4">
+    
+        <apex:outputField value="{!Account.Name}"/>
+        <apex:outputField value="{!Account.AccountNumber}"/>
+        <apex:outputField value="{!Account.NumberOfEmployees}"/>
+        <apex:outputField value="{!Account.Website}"/>
+        
+    </apex:pageBlockSection>
+    
+    <apex:pageBlockSection title="Address Info" columns="1" collapsible="false">
+    
+        <apex:outputField value="{!Account.Phone}" title="Phone No"/>
+        <apex:outputField value="{!Account.Description}"/>
+        <apex:outputField value="{!Account.Email__c}"/>
+        
+    </apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>

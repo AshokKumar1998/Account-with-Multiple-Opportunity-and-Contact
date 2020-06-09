@@ -1,0 +1,51 @@
+<aura:component controller="fetchPicklistOptsController">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isDVisible" type="Boolean" default="false" />
+    <aura:attribute name="isDVisible2" type="Boolean" default="false" />
+    
+    <aura:attribute name="options_obj" type="List" />
+    <aura:attribute name="selectedValue" type="String"/>
+    
+     <lightning:select name="obj" label="Select Object : " onchange="{! c.onobjectChange }" aura:id="obj" value="{!v.selectedValue}">
+        <aura:iteration items="{!v.options_obj}" var="option">
+            <option text="{!option.label}" value="{!option.id}" selected="{!option.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+    
+    <aura:attribute name="options_field" type="List" />
+    <aura:attribute name="selectedfield" type="String"/>
+    
+     <lightning:select name="field" label="Select Field : " onchange="{! c.onfieldChange }" aura:id="field" value="{!v.selectedfield}">
+        <aura:iteration items="{!v.options_field}" var="option">
+            <option text="{!option.label}" value="{!option.id}" selected="{!option.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+    
+    <aura:attribute name="fieldtype" type="String"/>
+    <aura:attribute name="action" type="String"/>
+     <aura:attribute name="operator" type="List" />
+    
+     <lightning:select name="operator" label="Select Operator : "  aura:id="operator" value="{!v.action}">
+        <aura:iteration items="{!v.operator}" var="option">
+            <option text="{!option.label}" value="{!option.id}" selected="{!option.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+    
+    
+     <aura:attribute name="pick_select" type="String"/>
+     <aura:attribute name="pick_val" type="List" />
+     <aura:if isTrue="{! v.isDVisible }">
+     <lightning:select name="Pick_Value" label="Select Value : " onchange="{! c.onfieldpickChange }" aura:id="Pick_Value" value="{!v.pick_select}">
+        <aura:iteration items="{!v.pick_val}" var="option">
+            <option text="{!option.label}" value="{!option.id}" selected="{!option.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+    </aura:if>
+    <aura:attribute name="entered_val" type="String"/>
+    <aura:if isTrue="{! v.isDVisible2 }">
+    <input type="text" aura:id="enter_data" onkeyup = "{!c.searchName}" placeholder = "Enter...."/>
+       </aura:if>             
+     <lightning:button variant="base" label="Query" title="Base action" onclick="{!c.go_for_search}"/>
+
+</aura:component>

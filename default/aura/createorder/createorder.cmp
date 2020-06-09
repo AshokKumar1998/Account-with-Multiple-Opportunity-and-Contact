@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" >
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:button label="Create Modal" variant="brand" onclick="{!c.createmodal}"/>
+    
+    
+    <lightning:navigation aura:id="navService"/>
+    <lightning:button label="Navigate" variant="brand" onclick="{!c.nav}"/>
+    
+      <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Account">
+        <div class="slds-box">
+            <lightning:outputField fieldName="Name" />
+            <lightning:outputField fieldName="Id" />
+        </div>
+    </lightning:recordViewForm>
+</aura:component>

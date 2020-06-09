@@ -1,0 +1,11 @@
+<apex:page >
+    
+    <html>
+        <!-- myComponent.html -->
+        <template>
+            <c-my-component></c-my-component>
+        </template>
+        
+    </html>
+    
+</apex:page>

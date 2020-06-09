@@ -1,0 +1,90 @@
+<aura:component controller="LoanVenderApex" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <aura:attribute name="ids" type="String" default="{!v.recordId}"  /> <!--  default="a0J2w0000009YnTEAU"  default="{!v.myAttr.Id}"-->
+    <aura:attribute name="response" type="Object" />
+    <aura:attribute name="new_selected" type="Object" />
+
+	<aura:attribute name="tosearch" type="String" default=""  />     
+    <aura:attribute name = "loanvenders" type = "LoanVender__c[]" /> 
+          
+    
+   <aura:attribute name="options" type="List" access="PRIVATE"/>
+    <aura:attribute name="selectedValue" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <lightning:select name="vender" label="Select Vender Type : " onchange="{! c.onChange }" aura:id="Type" value="{!v.selectedValue}">
+        <aura:iteration items="{!v.options}" var="option">
+            <option text="{!option.label}" value="{!option.id}" selected="{!option.selected}"/>
+        </aura:iteration>
+    </lightning:select>
+	
+     <input type="text" aura:id="enter_data" onkeyup = "{!c.searchName}" placeholder = "Enter...."/>
+   
+    
+     <aura:attribute name="records" type="List" default="[]"/>
+     <aura:attribute name="values" type="List" />
+
+     <aura:attribute name="Selecteds" type="String" default=""/>
+    
+      <lightning:dualListbox name="Records"
+                           label= "Select Record"
+                           sourceLabel="Available"
+                           selectedLabel="Selected"
+                           fieldLevelHelp="Select Records"
+                           onchange="{! c.handleChange }" 
+                           options="{!v.records}"
+                           value="{!v.values}"/>
+    <div class="slds-box" >
+         <lightning:button variant="base" label="Change Parent" title="Base action" onclick="{!c.change_parent}"/>
+    </div>
+  
+    <div class="slds-table--header-fixed_container" style="height:450px;">
+    <div class="slds-scrollable_y" style="height:100%;">
+            <table class="slds-table slds-table_bordered slds-table--header-fixed">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Opportunity Name">Index No.</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Account Name">Vender Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Close Date">Vender Type</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate slds-cell-fixed" title="Vender Company">Vender Company</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <aura:iteration items = "{!v.loanvenders}" var="child" indexVar="index" >
+                     <tr>
+                        <th scope="row" data-label="Opportunity Name">
+                            <div class="slds-truncate" title="{!index+1}"><a href="javascript:void(0);">{!index+1}</a></div>
+                        </th>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="{!child.Ashoka__Vender__r.Name}"> {!child.Ashoka__Vender__r.Name}</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="{!child.Ashoka__Vender__r.Ashoka__VenderType__c}">{!child.Ashoka__Vender__r.Ashoka__VenderType__c}</div>
+                        </td>
+                         <td data-label="Vender Company">
+                            <div class="slds-truncate" title="{!child.Ashoka__Vender__r.Ashoka__Comapny_Name__c}">{!child.Ashoka__Vender__r.Ashoka__Comapny_Name__c}</div>
+                        </td>
+                    </tr>
+                    
+        </aura:iteration>
+
+                     
+                </tbody>
+            </table>
+
+
+    </div>
+</div>
+
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    
+</aura:component>

@@ -1,0 +1,52 @@
+<template>
+
+  <lightning-card title="Account To Opportunity" icon-name="custom:custom63">
+    <br>
+    <lightning-combobox name="stage" label="Opportunity Stage" placeholder="Select Opportunity Stage" value={value}
+      onchange={ChangeOppStage} options={statusOptions}>
+    </lightning-combobox>
+    <br>
+    <template if:true={visible}>
+      <lightning-input label="Name" placeholder="Search Opportunity" onchange={search_opp_handle} type="search">
+      </lightning-input>
+    </template>
+    <br>
+    <template if:true={visible}>
+      <lightning-dual-listbox name="Opportunities" label="Select Opportunity" source-label="Available"
+        selected-label="Selected" options={get_opportunities} value={selected_opp} onchange={dual_value_change}>
+      </lightning-dual-listbox>
+    </template>
+
+    <br> <template if:true={visible}>
+      <lightning-button variant="brand" label="Link Opportunity" title="Link action"
+        icon-name="utility:change_record_type" icon-position="right" class="slds-m-left_x-small" onclick={changeparant}>
+      </lightning-button>
+    </template>
+    <br>
+
+    <br> <template if:true={visible}>
+      <lightning-datatable data={get_opportunity_record} columns={columns} show-row-number-column hide-checkbox-column
+        key-field="id"></lightning-datatable>
+
+
+    </template>
+  </lightning-card>
+
+
+  <!--h2>Vertical Headings:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Name:</th>
+    <td>Bill Gates</td>
+  </tr>
+  <tr>
+    <th>Telephone:</th>
+    <td>555 77 854</td>
+  </tr>
+  <tr>
+    <th>Telephone:</th>
+    <td>555 77 855</td>
+  </tr>
+</table-->
+</template>

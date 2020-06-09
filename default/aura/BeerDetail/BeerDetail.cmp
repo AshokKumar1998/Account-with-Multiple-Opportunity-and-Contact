@@ -1,0 +1,33 @@
+<aura:component >
+    
+    <aura:attribute name="beerId" type="String"/>
+    <aura:if isTrue="{!v.beerId != null}">
+        <force:recordView recordId="{!v.beerId}" />
+        <lightning:button label="Order Now" name="{!beerId}" variant="brand" onclick="{!c.orderit}"/>
+    </aura:if>
+    <!--  <aura:attribute name="accountRecord" type="Object"/>
+    <aura:attribute name="recordLoadError" type="String"/>
+    <div class="slds-p-around_small">
+        
+        
+        
+        <force:recordData aura:id="recordLoader"
+                          recordId="{!v.beerId}"
+                          fields="Name,Description,Phone,Industry"
+                          targetFields="{!v.accountRecord}"
+                          targetError="{!v.recordLoadError}"
+                          />
+        
+        <div> 
+            <lightning:card iconName="standard:account" title="{!v.accountRecord.Name}" >
+                <div class="slds-p-horizontal- -small">
+                    <p class="slds-text-heading- -medium"><lightning:formattedPhone title="Phone" value="{!v.accountRecord.Phone}" /></p>
+                    <p class="slds-truncate"><lightning:formattedText title="Description" value="{!v.accountRecord.Description}" /></p>
+                    <p class="slds-truncate"> <lightning:formattedText title="Industry" value="{!v.accountRecord.Industry}" /></p>
+                </div>
+            </lightning:card>
+        </div>
+        
+    </div>-->
+    
+</aura:component>

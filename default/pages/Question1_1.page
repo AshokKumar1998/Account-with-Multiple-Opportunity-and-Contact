@@ -1,0 +1,49 @@
+<apex:page standardController="Account" recordSetVar="accList">
+
+    <apex:form >
+            <apex:pageBlock >
+            
+            <apex:pageBlockSection title="Accout Info" columns="2" collapsible="false">
+            
+                <apex:inputField value="{!Account.Name}"/>
+                <apex:inputField value="{!Account.AccountNumber}" required="true"/>
+                <apex:inputField value="{!Account.NumberOfEmployees}"/>
+                <apex:inputField value="{!Account.type}"/>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Address Info" columns="2">
+            
+                <apex:inputField value="{!Account.Phone}" />
+                <apex:inputField value="{!Account.Description}"/>
+                <apex:inputField value="{!Account.Email__c}"/>
+                
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="Bottom">
+            		<apex:commandButton action="{!save}" value="Save Account"/>    
+            </apex:pageBlockButtons>    
+                
+            </apex:pageBlock>
+    </apex:form>
+
+    <apex:pageBlock >
+
+       <apex:pageBlockSection title="Account's">
+
+        <apex:pageBlockTable value="{!accList}" var="a">
+        
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.numberofemployees}"/>
+            <apex:column value="{!a.phone}"/>
+            <apex:column value="{!a.Type}"/>
+            <apex:column value="{!a.AccountNumber}"/>
+    
+         </apex:pageBlockTable>
+
+
+       </apex:pageBlockSection>
+
+    </apex:pageBlock>
+    
+</apex:page>

@@ -1,0 +1,23 @@
+<aura:component controller="fetchPicklistOptsController" >
+	
+    <aura:attribute name = "datas" type = "SObject[]" /> 
+    <aura:attribute name = "js_data" type = "List" /> 
+    <aura:attribute name = "val" type = "String" /> 
+  
+    <aura:handler event="c:parent_query_event" action = "{!c.searchkeyname}" />
+
+    <ul class="list-group" type="1">
+
+        <aura:iteration items = "{!v.js_data}" var="child" indexVar="index" >
+	
+            <li class="list-group-item">
+
+                 
+                     <pre class="THIS">{!index+1} : {!child}  </pre> 
+                
+            </li>
+        </aura:iteration>
+       
+    </ul>
+    
+</aura:component>

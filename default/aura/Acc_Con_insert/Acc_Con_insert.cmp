@@ -1,0 +1,109 @@
+<aura:component controller = "Account_Controller" Implements="flexipage:availableForRecordHome,force:hasRecordId" >
+    <aura:attribute name="newAccount" type="Account"
+     default="{ 'sobjectType': 'Account',
+                    'Name': '',
+                    'Phone': ''}"/>
+    
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+      
+    
+    <aura:handler name="DeleteRowEvt_opp" event="c:DeleteRowEvt_opp" action="{!c.removeDeletedRow_opp}"/>
+    <aura:handler name="AddRowEvt_opp" event="c:AddNewRowEvt_opp" action="{!c.addNewRow_opp}"/>
+    <aura:attribute name="oppList" type="Opportunity[]"/> 
+    
+    
+    <aura:handler name="DeleteRowEvt" event="c:DeleteRowEvt" action="{!c.removeDeletedRow}"/>
+    <aura:handler name="AddRowEvt" event="c:AddNewRowEvt" action="{!c.addNewRow}"/>
+     <aura:attribute name="accid" type="String" default="{!v.recordId}"/> 
+    <aura:attribute name="contactList" type="Contact[]"/> 
+    
+              <lightning:input type="text"  aura:id="Name" value="{!v.newAccount.Name}" placeholder = "Enter Account Name" required="true"/>
+              <lightning:input type="text"  aura:id="Phone" value="{!v.newAccount.Phone}" placeholder = "Enter Phone No"/>
+               
+
+  <!--   <lightning:recordEditForm
+            onsuccess="{!c.handleSuccess}"
+            objectApiName="Account">
+          
+            <lightning:messages />
+
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Phone" />
+           -->
+   
+          
+        <div class="slds-page-header">
+        <h1 class="slds-page-header__title">Create Multiple Opportunity</h1>
+    </div>
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer"> 
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate">S.No</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Name">First Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="CloseDate">Close Date</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="StageName">Stage Name</div>
+                </th>
+            </tr>
+        </thead>   
+        <tbody>
+            
+            <aura:iteration items="{!v.oppList}" var="item" indexVar="index">
+                <c:dynamicRowItem_opp OpportunityInstance="{!item}" rowIndex2="{!index}" />
+            </aura:iteration>
+        </tbody>
+    </table>
+    <br/>
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="slds-page-header">
+        <h1 class="slds-page-header__title">Create Multiple Contacts</h1>
+    </div>
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer"> 
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate">S.No</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="First Name">First Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Last Name">Last Name</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+            </tr>
+        </thead>   
+        <tbody>
+            
+            <aura:iteration items="{!v.contactList}" var="item" indexVar="index">
+                <c:dynamicRowItem ContactInstance="{!item}" rowIndex="{!index}" />
+            </aura:iteration>
+        </tbody>
+    </table>
+    <br/>
+
+        <!--   <div class="slds-m-top_medium">
+                <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" /
+            </div>
+        </lightning:recordEditForm> -->
+    <button class="slds-button slds-button_brand" onclick="{!c.insert_account1}">Save</button>
+</aura:component>

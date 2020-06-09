@@ -1,0 +1,92 @@
+<apex:page standardstylesheets="false" showheader="false">
+    
+    <HTML>
+        <HEAD>
+            <TITLE> JSON </TITLE>
+            
+        </HEAD>
+        <BODY>
+            
+            
+            <textarea id="data" rows="15" cols="250"/>
+            <INPUT type="button" value="Create JSON" onclick="count()" />
+            
+            <div id="result">
+                
+            </div>
+            
+            
+            <script>
+            
+            
+            
+            function count() {
+                
+                
+                
+                let myMap_char = new Map();
+                let myMap_int = new Map();
+                var str = document.getElementById("data").value;
+                
+                
+                var res = str.split(" ");
+                
+                res.forEach(function (item, index) {
+                    
+                    var b = parseInt(item);
+                    if (!Number.isInteger(b)){
+                        console.log(b);
+                        if ( myMap_char.has(item) ){
+                            myMap_char.set(item,(myMap_char.get(item)+1));
+                        }else{
+                            myMap_char.set(item,1);    
+                        }
+                    }else{
+                        if ( myMap_int.has(item) ){
+                            myMap_int.set(item,(myMap_int.get(item)+1));
+                        }else{
+                            myMap_int.set(item,1);    
+                        }
+                    }
+                });
+                 var data ="Result=><br/>{<br/>char:{<br/>";
+                for (let [key, value] of myMap_char) {
+                    if(key!="")
+                        data += key + ':' + value+",  <br/>";
+                    
+                }
+                data +="},<br/>digit:{<br/>";
+                for (let [key, value] of myMap_int) {
+                    if(key!="")
+                        data += key + ':' + value+",  <br/>";
+                    
+                }
+                data +="}<br/>}";
+                /* let jsonObjects = {}; 
+                let jsonObjecti = {}; 
+                for (let [key, value] of myMap_char) {
+                    if(key!="")
+                        jsonObjects[key] = value
+                       
+                }
+                for (let [key, value] of myMap_int) {
+                    if(key!="")
+                       jsonObjecti[key] = value
+                }
+
+                
+                var obj = { "Result": {"char":JSON.stringify(jsonObjects),"digit":JSON.stringify(jsonObjecti)}};
+                var myJSON = JSON.stringify(obj);
+                
+                document.getElementById("result").innerHTML = myJSON;*/
+                document.getElementById("result").innerHTML = data;
+                
+                
+            }
+            
+            </script>
+            
+        </BODY>
+    </HTML>
+    
+</apex:page>

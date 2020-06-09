@@ -1,0 +1,53 @@
+<apex:page standardstylesheets="false" showheader="false">
+    
+    <HTML>
+        <HEAD>
+            <TITLE> Frequency Of Strings </TITLE>
+            
+        </HEAD>
+        <BODY>
+            
+            
+            <textarea id="data" rows="10" onkeyup="count()" cols="100"/>
+            <div id="result">
+                
+            </div>
+            
+            
+            <script>
+            
+           
+            
+            function count() {
+                 let myMap = new Map()
+                var str = document.getElementById("data").value;
+                
+                //Sample String --> Ashok is a good person and he can be trusted. He is 21 year old. He is in 3 rd Year. He works in CYntexa from 0.6 year
+                    var res = str.split(" ");
+                    
+                    res.forEach(function (item, index) {
+                        console.log(item, index);
+                        if ( myMap.has(item) ){
+                            myMap.set(item,(myMap.get(item)+1));
+                        }else{
+                            myMap.set(item,1);    
+                        }
+                    });
+                    var data ="";
+                    for (let [key, value] of myMap) {
+                        	if(key!="")
+                            data += key + ' = ' + value+"  \n";
+                        
+                    }
+                    document.getElementById("result").innerHTML = data;
+                
+                
+                
+            }
+            
+            </script>
+            
+        </BODY>
+    </HTML>
+    
+</apex:page>

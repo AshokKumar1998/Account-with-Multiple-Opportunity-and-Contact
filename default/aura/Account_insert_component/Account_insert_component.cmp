@@ -1,0 +1,51 @@
+<aura:component controller = "Account_Controller" >
+    <aura:attribute name="newAccount" type="Account"
+     default="{ 'sobjectType': 'Account',
+                    'Name': '',
+                    'Email': '',
+                    'Phone': ''}"/>
+    
+    
+    
+    <aura:attribute name="isDVisible" type="Boolean" default="false" />
+
+    <lightning:button onclick="{! c.handleShowActiveSectionName }" label="Show Active Section Name"/>
+    <lightning:button onclick="{! c.handleToggleSectionD }" label="Toggle Section D"/>
+    <lightning:accordion aura:id="accordion" activeSectionName="B">
+        <lightning:accordionSection name="A" label="Insert Account By Simple Query ( APEX )" >
+             <lightning:badge label="Create"/>
+            <p> 
+                <form>
+                    <lightning:input type="text"  aura:id="Name" value="{!v.newAccount.Name}" placeholder = "Enter Account Name" required="true"/>
+                    <lightning:input type="text"  aura:id="Email" value="{!v.newAccount.Email}" placeholder = "Enter Email"/>
+                    <lightning:input type="text"  aura:id="Phone" value="{!v.newAccount.Phone}" placeholder = "Enter Phone No"/>
+                        
+                    <lightning:button variant="base" label="Insert" title="Base action" onclick="{!c.insert_account1}"/>
+
+    			</form>
+            </p>
+        </lightning:accordionSection>
+        <lightning:accordionSection name="B" label="Insert Account By Record Form ">
+            <lightning:badge label="Create"/>
+          <p>
+          	  <c:record_insert_form/>
+          </p>
+        </lightning:accordionSection>
+        <lightning:accordionSection name="C" label="Edit Account By Record Edit Form">
+            <lightning:badge label="Update"/>
+            <p>
+            	 <c:record_edit_form/>
+            </p>
+        </lightning:accordionSection>
+        <aura:if isTrue="{! v.isDVisible }">
+            <lightning:accordionSection name="D" label="Accordion Title D">
+                <p>This is the content area for section D.</p>
+                <p>Suspendisse est eros, maximus et risus a, luctus bibendum eros. Etiam ultrices tellus vehicula neque ornare, viverra venenatis purus accumsan. Aenean viverra finibus odio, vitae bibendum nisi tincidunt sed. Ut at porta dui. Praesent varius eleifend quam eget gravida. Curabitur maximus, leo sit amet dapibus gravida, mi ligula lacinia turpis, id feugiat tellus urna quis odio. Nullam tristique orci eu magna hendrerit vestibulum. Sed id purus at metus tristique tristique et vitae arcu. Sed molestie odio felis, sit amet lacinia mauris rutrum nec. Morbi semper lacinia tellus bibendum faucibus. Vestibulum eget ornare sapien, eget ultrices orci.</p>
+            </lightning:accordionSection>
+        </aura:if>
+    </lightning:accordion>
+    
+    
+    
+    
+</aura:component>
